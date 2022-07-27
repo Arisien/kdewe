@@ -1,11 +1,13 @@
 # KDEWE
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-KDEWE is a CLI utility for the KDE Wallpaper Engine plugin
+KDEWE is a CLI utility for the KDE Wallpaper Engine plugin.
 
 ![Alt Text](res/preview.gif)
 
 ## Installation
+
+> Warning: KDEWE is a project in active development. Install and use at your own discretion.
 
 * Clone the repo: `git clone https://github.com/Arisien/kdewe`
 
