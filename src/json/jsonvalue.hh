@@ -11,6 +11,7 @@
 #ifndef KDEWE_JSON_VALUE_HH
 #define KDEWE_JSON_VALUE_HH
 
+#include <stdexcept>
 #include <cstring>
 #include <string>
 #include <vector>

@@ -11,6 +11,7 @@
 #ifndef KDEWE_JSON_HH
 #define KDEWE_JSON_HH
 
+#include <stdexcept>
 #include <string>
 #include <map>
 

@@ -26,8 +26,7 @@ JSON JSON::parse (std::string src) {
     JSON json;
 
     if (src[0] != '{') {
-        std::cout << "Parsing Exception at start" << std::endl;
-        return json;
+        throw std::runtime_error("JSON::parse > Unexpected token " + std::string({src[0]}) + " at 0");
     }
 
     size_t cursor = 1;
@@ -36,8 +35,7 @@ JSON JSON::parse (std::string src) {
         while (src[cursor] == ' ' || src[cursor] == '\t' || src[cursor] == '\n') cursor++;
 
         if (src[cursor] != '"') {
-            std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting \" but got " << src[cursor] << std::endl;
-            return json;
+            throw std::runtime_error("JSON::parse > Unexpected token " + std::string({src[cursor]}) + " at " + std::to_string(cursor));
         }
 
         cursor++;
@@ -50,8 +48,7 @@ JSON JSON::parse (std::string src) {
         }
 
         if (src[cursor] != '"') {
-            std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting \" but reached file end." << std::endl;
-            return json;
+            throw std::runtime_error("JSON::parse > Unexpectededly reached end of file when parsing string: " + key);
         }
 
         cursor += 2;
@@ -65,8 +62,7 @@ JSON JSON::parse (std::string src) {
         if (src[cursor] == '}') break;
 
         if (src[cursor] != ',') {
-            std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting , but got " << src[cursor] << std::endl;
-            return json;
+            throw std::runtime_error("JSON::parse > Unexpected token " + std::string({src[cursor]}) + " at " + std::to_string(cursor));
         }
 
         cursor++;

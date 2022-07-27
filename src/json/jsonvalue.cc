@@ -90,7 +90,7 @@ JSONValue JSONValue::parse (std::string src) {
                 cursor += 4;
             }
             else {
-                std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting true but got " << src.substr(cursor, 4) << std::endl;
+                throw std::runtime_error("JSONValue::parse > Expected true but got " + src.substr(cursor, 4));
             }
             break;
         }
@@ -101,7 +101,7 @@ JSONValue JSONValue::parse (std::string src) {
                 cursor += 5;
             }
             else {
-                std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting true but got " << src.substr(cursor, 4) << std::endl;
+                throw std::runtime_error("JSONValue::parse > Expected false but got " + src.substr(cursor, 5));
             }
             break;
         }
@@ -116,7 +116,7 @@ JSONValue JSONValue::parse (std::string src) {
                 value = JSONValue(str);
             }
             else {
-                std::cout << "[JSON] Parsing Exception at " << cursor << ": Expecting \" but got file end." << std::endl;
+                throw std::runtime_error("JSONValue::parse > Unexpectededly reached end of file when parsing string: " + str);
             }
             cursor++;
             break;
@@ -141,8 +141,7 @@ JSONValue JSONValue::parse (std::string src) {
                 }
 
                 if (src[cursor] != ',') {
-                    std::cout << "[JSON] Parsing Exception at " << cursor << ": Unexpected token " <<  src[cursor] << std::endl;
-                    break;
+                    throw std::runtime_error("JSON::parse > Unexpected token " + std::string({src[cursor]}) + " at " + std::to_string(cursor));
                 }
 
                 cursor++;
@@ -158,7 +157,6 @@ JSONValue JSONValue::parse (std::string src) {
             return value;
         }
         default:
-            std::cout << "[JSON] Parsing Exception at " << cursor << ": Unexpected token " <<  src[cursor] << std::endl;
             value = JSONValue();
             break;
     }
