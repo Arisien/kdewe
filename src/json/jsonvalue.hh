@@ -71,4 +71,10 @@ class JSONValue {
         
 };
 
+class JSONPair {
+    public:
+        std::string key;
+        JSONValue value;
+};
+
 #endif

@@ -12,6 +12,12 @@
 
 JSON::JSON () {}
 
+JSON::JSON(std::vector<JSONPair> pairs) {
+    for (size_t i = 0; i < pairs.size(); i++) {
+        this->put(pairs[i].key, pairs[i].value);
+    }
+}
+
 void JSON::put (std::string str, JSONValue value) {
     content.insert(std::pair<std::string, JSONValue>(str, value));
 }

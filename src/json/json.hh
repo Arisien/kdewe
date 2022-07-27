@@ -19,6 +19,7 @@
 
 // WHY???
 class JSONValue;
+class JSONPair;
 
 
 class JSON {
@@ -28,6 +29,8 @@ class JSON {
         size_t len;
 
         JSON();
+
+        JSON(std::vector<JSONPair> pairs);
 
         void put (std::string str, JSONValue value);
 
