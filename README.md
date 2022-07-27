@@ -3,7 +3,37 @@
 
 KDEWE is a CLI utility for the KDE Wallpaper Engine plugin
 
+## Installation
+
+* Clone the repo: `git clone https://github.com/Arisien/kdewe`
+
+* Change directory: `cd kdewe`
+
+* Compile binary: `g++ src/main.cc -o kdewe`
+
+* Link binary: `ln -s /usr/bin/kdewe ./kdewe`
+
+## Usage
+
+* `kdewe [wallpaper id]`
+
+## Configuration
+
+* KDEWE is configured at `$HOME/.config/kdewe/config.json`. Configurations look something like this:
+
+```json
+{
+    "STEAMDIR": "/home/user/.local/share/Steam"
+}
+```
+
 ## Todo
+
+### Plugin
+
+* Implement functions for configuring wallpaper and plugin in general
+
+* Support changing to wallpaper of different type (scene -> video)
 
 ### JSON
 
@@ -16,8 +46,6 @@ class _Null {};
 ```
 
 * fully implement JSON_UNDEFINED into serializer and parser
-
-* Parser: handle whitespace at every possible position (not just some like currently)
 
 * JSON constructor to support: 
 ```c++

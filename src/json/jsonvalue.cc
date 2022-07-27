@@ -135,13 +135,16 @@ JSONValue JSONValue::parse (std::string src) {
 
                 cursor += value.len;
 
+                while (src[cursor] == ' ' || src[cursor] == '\t' || src[cursor] == '\n') cursor++;
+
                 if (src[cursor] == ']') {
                     cursor++;
                     break;
                 }
+                
 
                 if (src[cursor] != ',') {
-                    throw std::runtime_error("JSON::parse > Unexpected token " + std::string({src[cursor]}) + " at " + std::to_string(cursor));
+                    throw std::runtime_error("JSONValue::parse > Unexpected token " + std::string({src[cursor]}) + " at " + std::to_string(src[cursor]));
                 }
 
                 cursor++;
