@@ -11,8 +11,8 @@
 #include "./json/jsonvalue.cc"
 #include "./json/json.cc"
 
-#include "plugin.cc"
 #include "files.cc"
+#include "plugin.cc"
 
 #include <iostream>
 

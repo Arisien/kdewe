@@ -8,13 +8,9 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#include <stdexcept>
-#include <cstdlib>
-#include <cstdio>
-#include <string>
+#include "files.hh"
 
 namespace Files {
-
     std::string homedir () {
         char* chrptr = getenv("HOME");
 

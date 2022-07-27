@@ -8,8 +8,7 @@
  * @copyright Copyright (c) 2022
  * 
  */
-#include <cstdlib>
-#include <string>
+#include "plugin.hh"
 
 namespace Plugin {
 
@@ -21,7 +20,14 @@ namespace Plugin {
         system(chrptr);
     }
 
+    void set_display_mode (int mode) {
+        write_config("DisplayMode", std::to_string(mode));
+    }
+
     void change_wallpaper (std::string steamdir, std::string id) {
+        if (!Files::accesible(steamdir + "/steamapps/workshop/content/431960/" + id)) {
+            throw std::runtime_error("Plugin::change_wallpaper > Unable to find wallpaper " + id);
+        }
         write_config("WallpaperWorkShopId", id);
         write_config("WallpaperSource", "file://" + steamdir + "/steamapps/workshop/content/431960/"+ id +"/scene.json+scene");   
     }
