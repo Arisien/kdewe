@@ -3,6 +3,8 @@
 
 KDEWE is a CLI utility for the KDE Wallpaper Engine plugin
 
+![Alt Text](res/preview.gif)
+
 ## Installation
 
 * Clone the repo: `git clone https://github.com/Arisien/kdewe`
